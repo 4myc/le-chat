@@ -3,9 +3,11 @@
 :root {
 	/* --dark-color-a: #a5a5a5; */
 	/* --dark-color-a: #1dbe88; */
-	--dark-color-a: #06b3a4;
-	--dark-color-b: #6bd3ca;
-	--light-color: whitesmoke;
+	/* --dark-color-a: #06b379; */
+	--dark-color-a: #dad6d6;
+	--dark-color-b: whitesmoke;
+	/* --dark-color-b: #66cec5; */
+	--light-color: #66cec5;
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
 }
@@ -36,8 +38,8 @@ a {
 .btn {
 	cursor: pointer;
 	padding: 10px 15px;
-	background: var(--light-color);
-	color: var(--dark-color-a);
+	background: var(--dark-color-a);
+	color: #2e2e2e;
 	border: 0;
 	font-size: 17px;
 }
@@ -85,6 +87,7 @@ a {
 .join-main label {
 	display: block;
 	margin-bottom: 5px;
+	color: #474747;
 }
 
 .join-main input[type='text'] {
