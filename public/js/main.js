@@ -1,6 +1,9 @@
 // Emit form inputs (e.g. sending a message) to server and add to the DOM
 const chatForm = document.getElementById('chat-form');
 
+// Select a message
+const chatMessages = document.querySelector('.chat-messages');
+
 // Connect to socket.io in server
 const socket = io();
 
@@ -10,6 +13,9 @@ socket.on('message', message => {
 
     // Output Options: templating engines (handlebars.js, mustache), React
     outputMessage(message);
+
+    // Automatically scroll down to show latest message
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
 // Submit a message
@@ -22,6 +28,10 @@ chatForm.addEventListener('submit', (e) => {
 
     // Emit message to the server
     socket.emit('chatMessage', msg);
+
+    // Clear the message input field after submission and focus on it
+    e.target.elements.msg.value = '';
+    e.target.elements.msg.focus();
 });
 
 // Output message to the DOM
