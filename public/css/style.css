@@ -5,7 +5,7 @@
 	/* --dark-color-a: #1dbe88; */
 	/* --dark-color-a: #06b379; */
 	/* --dark-color-b: whitesmoke; */
-	--dark-color-a: #45cfc4;
+	--dark-color-a: #1bc5b7;
 	--dark-color-b: #88e0d9;
 	--light-color: whitesmoke;
 	--success-color: #5cb85c;
@@ -177,7 +177,7 @@ a {
 .chat-messages .message .meta {
 	font-size: 15px;
 	font-weight: bold;
-	color: var(--dark-color-b);
+	color: var(--dark-color-a);
 	opacity: 0.7;
 	margin-bottom: 7px;
 }
