@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Le Chat</title>
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <h2><i class="fas fa-cat cat-icon-left-chat"></i> Le Chat <i class="fas fa-cat fa-flip-horizontal cat-icon-right-chat"></i></h2>
+      <a href="index.html" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h2 id="room-name">ROOM: Luna</h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users">
+          <li>Serena</li>
+          <li>Kiki</li>
+          <li>Sabrina</li>
+          <li>Tabatha</li>
+        </ul>
+      </div>
+      <div class="chat-messages">
+					<div class="message">
+						<p class="meta">Amy <span>9:12pm</span></p>
+						<p class="text">
+							Hi! How are you?
+						</p>
+					</div>
+					<div class="message">
+						<p class="meta">Guest <span>9:15pm</span></p>
+						<p class="text">
+							Doing well, thank you!
+						</p>
+					</div>
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"> Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
