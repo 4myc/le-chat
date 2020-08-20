@@ -41,9 +41,9 @@ function outputMessage(message) {
 
     // Add the message to the new div
     div.classList.add('message');
-    div.innerHTML = `<p class="meta">Amy <span>9:12pm</span></p>
+    div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
     <p class="text">
-        ${message}
+        ${message.text}
     </p>`;
 
     // Append the message to the DOM
