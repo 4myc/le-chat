@@ -26,10 +26,10 @@ chatForm.addEventListener('submit', (e) => {
     const msg = e.target.elements.msg.value;
     // console.log(msg);
 
-    // Emit message to the server
+    // Emit message text to the server
     socket.emit('chatMessage', msg);
 
-    // Clear the message input field after submission and focus on it
+    // Clear message input field after submission and focus on it
     e.target.elements.msg.value = '';
     e.target.elements.msg.focus();
 });
@@ -39,13 +39,13 @@ function outputMessage(message) {
     // Create a new div for the message
     const div = document.createElement('div');
 
-    // Add the message to the new div
+    // Add message to the new div
     div.classList.add('message');
     div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
     <p class="text">
         ${message.text}
     </p>`;
 
-    // Append the message to the DOM
+    // Append message to the DOM
     document.querySelector('.chat-messages').appendChild(div);
 };

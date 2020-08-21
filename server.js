@@ -13,7 +13,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const adminName = 'Admin Bot';
 
-// Run when a user connects
+// Communicating with the front end:
+// socket.emit - emits to a single user
+// socket.broadcast.emit - emits to all other users except sender
+// socket.on - listens and receives action from one user
+// io.emit - emits a message to all users 
+
+// Create a connection - Run when a user connects
 io.on('connection', socket => {
     // console.log('New WS Connection...');
 
@@ -32,7 +38,7 @@ io.on('connection', socket => {
     socket.on('chatMessage', (msg) => {
         // console.log(msg);
         
-        // Emit the message back to the front end
+        // Emit message back to the front end
         // io.emit('message', msg);
         io.emit('message', formatMessage('USER', msg));
     });

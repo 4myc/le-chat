@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 :root {
-	/* --dark-color-a: #a5a5a5; */
-	/* --dark-color-a: #1dbe88; */
-	/* --dark-color-a: #06b379; */
-	/* --dark-color-b: whitesmoke; */
-	--dark-color-a: #1bc5b7;
-	--dark-color-b: #88e0d9;
+	--dark-color-a: #00B4BC;
+	--dark-color-b: #82D8D5;
 	--light-color: whitesmoke;
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
@@ -143,8 +139,8 @@ a {
 .chat-sidebar {
 	background: var(--dark-color-b);
 	color: #fff;
-	padding: 30px 30px 60px;
-	overflow-y: scroll;
+	padding: 30px 20px 60px;
+	overflow-y: scoll;
 }
 
 .chat-sidebar h2 {
