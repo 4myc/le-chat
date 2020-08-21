@@ -4,8 +4,19 @@ const chatForm = document.getElementById('chat-form');
 // Select a message
 const chatMessages = document.querySelector('.chat-messages');
 
+// Get username and room from URL using qs library 
+// https://cdnjs.com/libraries/qs
+const { username, room } = Qs.parse(location.search, {
+    ignoreQueryPrefix: true
+});
+
+// console.log(username, room);
+
 // Connect to socket.io in server
 const socket = io();
+
+// Join chat room --> Emits an event to the server
+socket.emit('joinRoom', { username, room });
 
 // Show message from the server associated with each action (e.g. welcome user, new user joined, user left, etc.)
 socket.on('message', message => {
