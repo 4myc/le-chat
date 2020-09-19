@@ -1,3 +1,5 @@
+// User Info
+
 // Create users array
 const users = [];
 

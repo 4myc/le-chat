@@ -1,3 +1,5 @@
+// Message Formatting
+
 const moment = require('moment');
 
 // Message formatting
@@ -5,7 +7,7 @@ function formatMessage(username, text) {
     return {
         username,
         text,
-        time: moment().format('h:mm a'),
+        time: moment().format('llll'),
     }
 }
 

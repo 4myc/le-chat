@@ -4,6 +4,13 @@ const chatForm = document.getElementById('chat-form');
 // Select a message
 const chatMessages = document.querySelector('.chat-messages');
 
+// Select room name
+const roomName = document.getElementById('room-name');
+
+// Select users
+const userList = document.getElementById('users');
+
+
 // Get username and room from URL using qs library 
 // https://cdnjs.com/libraries/qs
 const { username, room } = Qs.parse(location.search, {
@@ -17,6 +24,12 @@ const socket = io();
 
 // Join chat room --> Emits an event to the server
 socket.emit('joinRoom', { username, room });
+
+// Get users and room info
+socket.on('roomUsers', ({ room, users}) => {
+    outputRoomName(room);
+    outputUsers(users);
+});
 
 // Show message from the server associated with each action (e.g. welcome user, new user joined, user left, etc.)
 socket.on('message', message => {
@@ -59,4 +72,16 @@ function outputMessage(message) {
 
     // Append message to the DOM
     document.querySelector('.chat-messages').appendChild(div);
+};
+
+// Add room name to DOM
+function outputRoomName(room) {
+    roomName.innerText = room;
+};
+
+// Add users to DOM
+function outputUsers(users) {
+    userList.innerHTML = `
+    ${users.map(user => `<li>${user.username}</li>`).join('')}
+    `;
 };

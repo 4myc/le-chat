@@ -2,17 +2,18 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
-const formatMessage = require('./utils/messages');
-const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
-
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const formatMessage = require('./utils/messages');
+const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const adminName = 'Admin Bot';
+const adminName = 'Admin';
+
+// https://github.com/socketio/socket.io-website/blob/master/source/docs/emit-cheatsheet.md
 
 // Communicating with the front end:
 // socket.emit - emits to a single user
@@ -20,23 +21,30 @@ const adminName = 'Admin Bot';
 // socket.on - listens and receives action from one user
 // io.emit - emits a message to all users 
 
-// Create a connection - Run when a user connects
+// Create a connection
 io.on('connection', socket => {
     // console.log('New WS Connection...');
 
+    // Run when a user connects
     socket.on('joinRoom', ({ username, room }) => {
-    // Set user with info
-    const user = userJoin(socket.id, username, room);
-    // New user joins room
-    socket.join(user.room);
+        // Set user with info
+        const user = userJoin(socket.id, username, room);
+        // New user joins room
+        socket.join(user.room);
 
-    // Moved here from outside
-    // Welcome new user --> Emits to a SINGLE client
-    socket.emit('message', formatMessage(adminName,`Hi ${user.username}. Welcome to Le Chat!`));
+        // Moved here from outside
+        // Welcome new user --> Emits to a SINGLE client
+        socket.emit('message', formatMessage(adminName,`Hi ${user.username}. Welcome to Le Chat!`));
 
-    // Announce when a new user connects --> Emits to all clients EXCEPT the client that is connecting
-    // .to(user.room) --> broadcasts message ONLY to the user's room
-    socket.broadcast.to(user.room).emit('message', formatMessage(adminName,`${user.username} has joined the chat`));
+        // Announce when a new user connects --> Emits to all clients EXCEPT the client that is connecting
+        // .to(user.room) --> broadcasts message ONLY to the user's room
+        socket.broadcast.to(user.room).emit('message', formatMessage(adminName,`${user.username} has joined the chat.`));
+
+        // Send users and room info to front end - copy to disconnect
+        io.to(user.room).emit('roomUsers', {
+            room: user.room,
+            users: getRoomUsers(user.room)
+        });
 
     });
 
@@ -60,7 +68,14 @@ io.on('connection', socket => {
 
         // Check if user exists
         if(user) {
-            io.to(user.room).emit('message', formatMessage(adminName, `${user.username} has left the chat`));
+            io.to(user.room).emit('message', formatMessage(adminName, `${user.username} has left the chat.`));
+
+            // Remove users and room info when users disconnect
+            io.to(user.room).emit('roomUsers', {
+                room: user.room,
+                users: getRoomUsers(user.room)
+            });
+
         }
     });
 });
