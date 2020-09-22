@@ -20,7 +20,7 @@ Moment.js
 
 ## Installation
 
-1. Clone this repo and cd into the folder in Terminal.  
+1. Clone this repo and cd into the folder in the terminal.  
 
 ```  
 git clone <repo url>  
@@ -32,13 +32,13 @@ cd le-chat
 npm install
 ```  
 
-3. In Terminal, load the app by running:
+3. In the terminal, load the app by running:
 ```  
 run npm start
 ```  
 
 ## Usage
 1. Open localhost:3000 in two or more browser windows to mimic multiple users.  
-2. Joining a chat room: In each window, enter a name, select a room, and click **Join Chat**. The user's name will appear on the left sidebar and all users in the chat room will be notified that a user has joined the chat.    
+2. In each window, enter a name, select the same chat room, and click **Join Chat**. The user's name will appear on the left sidebar and all users in the chat room will be notified when new users join the chat.    
 3. Sending a message: In each window, enter a message and click **Send**. All users in the chat room will see the message.   
-4. To leave a chat room, click **Leave Room**. Other users will be notified after a user leaves the chat room.  
+4. To leave a chat room, click **Leave Room**. All users in the room will be notified after a user leaves the chat.  
