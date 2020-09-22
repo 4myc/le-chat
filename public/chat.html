@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
   <link rel="stylesheet" href="css/style.css">
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/css/emoji.css" rel="stylesheet">
   <title>Le Chat</title>
 </head>
 <body>
@@ -27,16 +30,28 @@
       <form id="chat-form">
         <input
           id="msg"
+          class="form-control"
           type="text"
           placeholder="Enter Message"
           required
           autocomplete="off"
+          data-emojiable="true"
         />
         <button class="btn"> Send</button>
       </form>
     </div>
   </div>
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	 <!-- JavaScript emoji picker -->
+	 <script src="lib/js/config.js"></script>
+	 <script src="lib/js/util.js"></script>
+	 <script src="lib/js/jquery.emojiarea.js"></script>
+	 <script src="lib/js/emoji-picker.js"></script>
+
+   <!-- Socket.IO -->
   <script 
   src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha512-BHtomM5XDcUy7tDNcrcX1Eh0RogdWiMdXl3wJcKB3PFekXb3l5aDzymaTher61u6vEZySnoC/SAj2Y/p918Y3w==" crossorigin="anonymous">
   </script>
