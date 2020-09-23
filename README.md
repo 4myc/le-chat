@@ -34,7 +34,7 @@ npm install
 
 3. Load the app by running:
 ```  
-run npm start
+npm run start
 ```  
 
 ## Usage
