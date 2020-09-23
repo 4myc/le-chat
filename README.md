@@ -10,13 +10,11 @@ User can see other users join or leave the chat room
 
 ## Technologies
 
-HTML5  
-CSS3  
-JavaScript  
-[Socket.IO](https://socket.io/)  
-Node.js  
-Express.js  
-[Moment.js](https://momentjs.com/)  
+HTML5, CSS3, JavaScript, [Socket.IO](https://socket.io/), Node.js, Express.js, [Moment.js](https://momentjs.com/)  
+
+<img src="public/images/le_chat1.png" width="800px" >
+<img src="public/images/le_chat2.png" width="800px" >
+<img src="public/images/le_chat3.png" width="800px" >
 
 ## Installation
 
