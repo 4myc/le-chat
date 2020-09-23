@@ -1,6 +1,6 @@
-# LE-CHAT
+# LE CHAT
 
-Le-Chat is a chat app that allows users to communicate in realtime. 
+Le Chat is a chat app that allows users to communicate in realtime. 
 
 USER STORIES:  
 User can join a chat room  
